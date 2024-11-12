@@ -19,6 +19,9 @@ export default function ProfilePage() {
 	});
 
     if (!context || !context.currentUser || error) {
+		delete axios.defaults.headers.common['Authorization'];
+		localStorage.removeItem('Authorization');
+		context?.setCurrentUser(null);
 		return (
 			<Navigate to={'/login'} />
 		);

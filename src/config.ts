@@ -1,1 +1,1 @@
-export const apiHost = 'http://localhost:3000';
+export const apiHost = 'https://ia-04-server.vercel.app';

@@ -2,6 +2,7 @@ import axios, { AxiosError } from 'axios';
 import { useMutation } from '@tanstack/react-query';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { apiHost } from '../config';
+import { Link } from 'react-router-dom';
 
 type Inputs = {
 	username: string;
@@ -154,7 +155,7 @@ export default function RegisterPage() {
 				/>
 			</form>
 			{mutation.isPending && <p>Sending...</p>}
-			{mutation.isSuccess && <p>Registered successfully</p>}
+			{mutation.isSuccess && <p>Registered successfully. <Link className='text-primary hover:text-primary/60' to={"/login"}> Go to login</Link></p>}
 			{mutation.isError && (
 				<p>Register fail: {mutation.error.response?.data.message}</p>
 			)}

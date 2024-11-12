@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { apiHost } from '../config';
 import { AuthContext } from '../Context';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AuthData } from '../Type';
 import { Navigate } from 'react-router-dom';
 
@@ -39,10 +39,6 @@ export default function LoginPage() {
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		mutation.mutate(data);
 	};
-
-	useEffect(() => {
-		
-	}, [context, mutation.data?.data, mutation.isSuccess])
 	
 	if (mutation.isSuccess) {
 		if (context) {
